@@ -1,9 +1,11 @@
 import * as win32 from "../mod.ts";
 
+win32.create_WNDCLASSA("Deno nono FFI");
+
 const msgboxID = win32.MessageBox(
   null,
-  "Hello World\n你好，世界\nこんにちは世界\nBonjour le monde\nمرحبا بالعالم",
-  "Deno FFI",
+  "Hello BUTTS World\n你好，世界\nこんにちは世界\nBonjour le monde\nمرحبا بالعالم",
+  "Deno nono FFI",
   win32.MB_YESNO | win32.MB_ICONWARNING,
 );
 
