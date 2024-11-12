@@ -42,8 +42,17 @@ export function uint8ArrayToFormattedHex(uint8Array: Uint8Array): string {
 
 export function zeroFillBigIntHex(value: bigint): string {
 
-  console.log(`typeof value: ${typeof value}`);
+  if(typeof value === 'object')
+  {
+    console.log('Dumping object');
+    debugger;
+    dumpObjectProperties(value);
+    console.log('Done Dumping object');
+  }
 
+  
+
+  console.log(`typeof value: ${typeof value}`);
 
   console.log(`value: ${value.valueOf()}`);
   

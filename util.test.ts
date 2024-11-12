@@ -95,6 +95,7 @@ Deno.test("dumpObjectProperties()", () => {
   };
 
   const dump = util.dumpObjectProperties(obj);
+  
   assert(dump.indexOf("Attribute: a = 1") > -1);
   assert(dump.indexOf("Attribute: b = two") > -1);
   assert(dump.indexOf("Attribute: c = 3") > -1);
@@ -102,7 +103,6 @@ Deno.test("dumpObjectProperties()", () => {
   assert(dump.indexOf("Function: fnOne()") > -1);
   assert(dump.indexOf("Function: fnTwo()") > -1);
 });
-
 
 Deno.test("get_ptr_from_offset()", () => {
   const str = "Taco Tuesday!";
