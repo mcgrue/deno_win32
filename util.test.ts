@@ -1,4 +1,4 @@
-import { assert, assertEquals, assertNotEquals } from "jsr:@std/assert";
+import { assertEquals, assertNotEquals } from "jsr:@std/assert";
 
 import * as util from "./util.ts";
 import { uint8ArrayToFormattedHex } from "./util.ts";

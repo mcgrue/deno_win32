@@ -25,7 +25,7 @@ export function FormatMessage(
   Arguments: bigint | null,
 ): bigint {
   return dll.symbols.FormatMessageW(
-    dwFlags,
+    BigInt(dwFlags),
     lpSource,
     dwMessageId,
     dwLanguageId,

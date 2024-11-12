@@ -23,6 +23,7 @@ export function cstr2ptrW(cstr: string) : Deno.UnsafePointer {
   if (ptr === null) {
     throw new Error("Failed to create UnsafePointer");
   }
+
   return ptr;
 }
 

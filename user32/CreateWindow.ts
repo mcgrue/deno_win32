@@ -16,7 +16,7 @@ export function CreateWindow(
   lpParam: bigint | null,
 ): bigint | null {
   return dll.symbols.CreateWindowExW(
-    dwExStyle,
+    BigInt(dwExStyle),
     cstr2ptrW(lpClassName),
     cstr2ptrW(lpWindowName),
     dwStyle,
