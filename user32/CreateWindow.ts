@@ -2,7 +2,7 @@ import { cstr2ptrW } from "../util.ts";
 import { dll } from "./dll.ts";
 
 export function CreateWindow(
-  dwExStyle: number,
+  dwExStyle: number | null,
   lpClassName: string,
   lpWindowName: string,
   dwStyle: number,
@@ -16,7 +16,7 @@ export function CreateWindow(
   lpParam: bigint | null,
 ): bigint | null {
   return dll.symbols.CreateWindowExW(
-    BigInt(dwExStyle),
+    dwExStyle,
     cstr2ptrW(lpClassName),
     cstr2ptrW(lpWindowName),
     dwStyle,

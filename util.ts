@@ -42,8 +42,14 @@ export function uint8ArrayToFormattedHex(uint8Array: Uint8Array): string {
 
 export function zeroFillBigIntHex(value: bigint): string {
 
+  console.log(`typeof value: ${typeof value}`);
+
+
+  console.log(`value: ${value.valueOf()}`);
+  
   const hexval = value.toString(16);
-  const cur_length = hexval.length;
+  console.log(`hexval: ${hexval}`);
+  // const cur_length = hexval.length;
 
   return hexval.padStart(16, '0');
 }
@@ -149,4 +155,28 @@ export function readCString(ptr: Deno.UnsafePointer): string {
 
     return cstr;
   }
+}
+
+export function dumpObjectProperties(obj: object): string {
+  const propertyNames = Object.getOwnPropertyNames(obj);
+
+  let ret = "";
+
+  propertyNames.forEach(propertyName => {
+    const propertyValue = (obj as any)[propertyName];
+    const propertyType = typeof propertyValue;
+
+    if (propertyType === 'function') {
+      const msg = `Function: ${propertyName}()`;
+      console.log(msg);
+      ret += msg + '\n';
+    } else {
+      const msg = `Attribute: ${propertyName} = ${propertyValue}`;
+      console.log(msg);
+      ret += msg + '\n';
+    }
+
+  });
+
+  return ret;
 }

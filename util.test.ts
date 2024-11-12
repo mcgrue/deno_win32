@@ -1,4 +1,4 @@
-import { assertEquals, assertNotEquals } from "jsr:@std/assert";
+import { assert, assertEquals, assertNotEquals } from "jsr:@std/assert";
 
 import * as util from "./util.ts";
 import { uint8ArrayToFormattedHex } from "./util.ts";
@@ -82,6 +82,25 @@ Deno.test("get_n_bytes_from_ptr()", () => {
   assertEquals(result2AsUint8Array[1], 0)
   assertEquals(result2AsUint8Array[2], 254)
   assertEquals(result2AsUint8Array[3], 1)
+});
+
+Deno.test("dumpObjectProperties()", () => {
+  const obj = {
+    a: 1,
+    b: "two",
+    c: 3.0,
+    d: true,
+    fnOne : () => { return 1; },
+    fnTwo : () => { return 1; },
+  };
+
+  const dump = util.dumpObjectProperties(obj);
+  assert(dump.indexOf("Attribute: a = 1") > -1);
+  assert(dump.indexOf("Attribute: b = two") > -1);
+  assert(dump.indexOf("Attribute: c = 3") > -1);
+  assert(dump.indexOf("Attribute: d = true") > -1);
+  assert(dump.indexOf("Function: fnOne()") > -1);
+  assert(dump.indexOf("Function: fnTwo()") > -1);
 });
 
 
